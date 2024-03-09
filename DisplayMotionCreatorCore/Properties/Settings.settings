@@ -1,6 +1,21 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="DisplayMotionCreatorCore.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="tempoSave" Type="System.String" Scope="User">
+      <Value Profile="(Default)">テンポを入力</Value>
+    </Setting>
+    <Setting Name="timSigSave" Type="System.String" Scope="User">
+      <Value Profile="(Default)">拍子を入力</Value>
+    </Setting>
+    <Setting Name="lengthSave" Type="System.String" Scope="User">
+      <Value Profile="(Default)">長さを入力</Value>
+    </Setting>
+    <Setting Name="startFrameSave" Type="System.String" Scope="User">
+      <Value Profile="(Default)">開始フレーム位置を入力</Value>
+    </Setting>
+    <Setting Name="startBarSave" Type="System.String" Scope="User">
+      <Value Profile="(Default)">開始小節番号を入力(1以上)</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>
