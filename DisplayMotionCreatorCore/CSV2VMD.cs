@@ -2,6 +2,7 @@
 using System.IO;
 using System.Text;
 using System.Windows;
+using MW = ModernWpf;
 
 namespace DisplayMotionCreatorCore
 {
@@ -24,13 +25,13 @@ namespace DisplayMotionCreatorCore
             if (sfd.ShowDialog() == true)
             {
                 SaveBinary(sfd.FileName, keyframes);
-                MessageBox.Show($"{MainWindow.tempo}bpm、{MainWindow.timSig}拍子、{MainWindow.length}秒で生成しました。キー数{DMC.totalKeys}です。\n",
+                MW.MessageBox.Show($"{MainWindow.tempo}bpm、{MainWindow.timSig}拍子、{MainWindow.length}秒で生成しました。キー数{DMC.totalKeys}です。\n",
                     "出力完了", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 // 上限超えてたら注意
                 if (DMC.totalKeys >= 20000)
                 {
-                    MessageBox.Show("MMDのキー登録数の上限は20000ですので注意してください。",
+                    MW.MessageBox.Show("MMDのキー登録数の上限は20000ですので注意してください。",
                     "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
 
@@ -75,7 +76,7 @@ namespace DisplayMotionCreatorCore
                 }
                 catch (IOException)
                 {
-                    MessageBox.Show("書き込みができません", "エラー",
+                    MW.MessageBox.Show("書き込みができません", "エラー",
                         MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }

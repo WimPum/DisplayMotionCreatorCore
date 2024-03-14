@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Windows;
+using MW = ModernWpf;
 
 namespace DisplayMotionCreatorCore
 {
@@ -108,7 +109,7 @@ namespace DisplayMotionCreatorCore
                 // 値がおかしくないかチェックする
                 if (timSig < 1 || timSig > 9)
                 {
-                    MessageBox.Show("拍子は１〜９までの整数値で入力してください。", "エラー",
+                    MW.MessageBox.Show("拍子は１〜９までの整数値で入力してください。", "エラー",
                     MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
@@ -126,7 +127,7 @@ namespace DisplayMotionCreatorCore
             }
             catch (FormatException)
             {
-                MessageBox.Show("数値を入力してください。", "エラー",
+                MW.MessageBox.Show("数値を入力してください。", "エラー",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
             finally

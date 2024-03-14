@@ -4,37 +4,39 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DisplayMotionCreatorCore"
-        Title="DisplayMotionCreator" Height="330" Width="320" MinHeight="330">
+        xmlns:ui="http://schemas.modernwpf.com/2019"
+        ui:WindowHelper.UseModernWindowStyle="True"
+        Title="DisplayMotionCreator" Height="360" Width="320" MinHeight="360" WindowStartupLocation="CenterScreen">
     <Grid Margin="10,10,10,10">
         <Grid.RowDefinitions>
-            <RowDefinition Height="1.4*" />
-            <RowDefinition Height="4.8*" />
+            <RowDefinition Height="1.2*" />
+            <RowDefinition Height="5*" />
             <RowDefinition Height="1.2*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="60
-                              px"/>
+            <ColumnDefinition Width="55px"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Row="0" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" 
+        <TextBlock Grid.Row="0" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" 
                    Text="MMDElectone&#xD;&#xA;テンポ画面用Motion生成器" TextAlignment="Center" FontSize="16" Grid.ColumnSpan="2"/>
         <StackPanel Grid.Row="1" VerticalAlignment="Center" Margin="0,0,5,0" >
-            <TextBox x:Name="inputTempo" Text="テンポを入力" FontSize="16" Height="28" Margin="0,0,0,8" ToolTip="BPMを入力してください。"/>
-            <TextBox x:Name="inputTimeSig" Text="拍子を入力" FontSize="16" Height="28" Margin="0,0,0,8"
+            <TextBox x:Name="inputTempo" Text="テンポを入力" FontSize="17" Height="33" Margin="0,0,0,8" ToolTip="BPMを入力してください。"/>
+            <TextBox x:Name="inputTimeSig" Text="拍子を入力" FontSize="17" Height="33" Margin="0,0,0,8"
                      ToolTip="拍子を整数で入力してください。&#xa;4分の4なら'4',4分の3なら'3'と入力"/>
-            <TextBox x:Name="inputLength" Text="長さを入力" FontSize="16" Height="28" Margin="0,0,0,8" ToolTip="モーションの長さを秒単位で入力してください。"/>
-            <TextBox x:Name="inputStartFrame" Text="開始フレーム位置を入力" FontSize="16" Height="28" Margin="0,0,0,8" ToolTip="変更がない場合はデフォルトは0です。"/>
-            <TextBox x:Name="inputStartBar" Text="開始小節番号を入力(1以上)" FontSize="16" Height="28"
+            <TextBox x:Name="inputLength" Text="長さを入力" FontSize="17" Height="33" Margin="0,0,0,8" ToolTip="モーションの長さを秒単位で入力してください。"/>
+            <TextBox x:Name="inputStartFrame" Text="開始フレーム位置を入力" FontSize="17" Height="33" Margin="0,0,0,8" ToolTip="変更がない場合はデフォルトは0です。"/>
+            <TextBox x:Name="inputStartBar" Text="開始小節番号を入力(1以上)" FontSize="17" Height="33"
                      ToolTip="1以上を入力してください。&#xa;変更がない場合はデフォルトは1です。" Margin="0,0,0,8"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" >
-            <TextBlock FontSize="16" Text="bpm" HorizontalAlignment="Left" Height="28" Margin="0,0,0,8"/>
-            <TextBlock FontSize="16" Text="拍" HorizontalAlignment="Left" Height="28" Margin="0,0,0,8"/>
-            <TextBlock FontSize="16" Text="秒" HorizontalAlignment="Left" Height="28" Margin="0,0,0,8"/>
-            <TextBlock FontSize="16" Text="frame" HorizontalAlignment="Left" Height="28" Margin="0,0,0,8"/>
-            <TextBlock FontSize="16" Text="小節目" HorizontalAlignment="Left" Height="28" Margin="0,0,0,8"/>
+            <TextBlock FontSize="16" Text="bpm" HorizontalAlignment="Left" Height="33" Margin="0,0,0,8"/>
+            <TextBlock FontSize="16" Text="拍" HorizontalAlignment="Left" Height="33" Margin="0,0,0,6"/>
+            <TextBlock FontSize="16" Text="秒" HorizontalAlignment="Left" Height="33" Margin="0,0,0,6"/>
+            <TextBlock FontSize="16" Text="frame" HorizontalAlignment="Left" Height="33" Margin="0,0,0,6"/>
+            <TextBlock FontSize="16" Text="小節目" HorizontalAlignment="Left" Height="33" Margin="0,0,0,6"/>
         </StackPanel>
         <Button x:Name="confirm" Grid.Row="2" Grid.ColumnSpan="2" Content="実行" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                FontSize="18" Height="35" Width="75" Margin="0,5,0,0" Click="confirm_Click"/>
+                FontSize="18" Height="35" Width="75" Margin="0,5,0,0" Click="confirm_Click" Style="{StaticResource AccentButtonStyle}"/>
+        <ui:ProgressRing Grid.Row="2" Grid.Column="1" Width="50" Height="50" IsActive="True"></ui:ProgressRing>
     </Grid>
 </Window>
