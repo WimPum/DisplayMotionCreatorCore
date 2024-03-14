@@ -1,5 +1,4 @@
 ﻿using Microsoft.Win32;
-using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Windows;
@@ -29,7 +28,7 @@ namespace DisplayMotionCreatorCore
                     "出力完了", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 // 上限超えてたら注意
-                if(DMC.totalKeys >= 20000)
+                if (DMC.totalKeys >= 20000)
                 {
                     MessageBox.Show("MMDのキー登録数の上限は20000ですので注意してください。",
                     "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -64,7 +63,7 @@ namespace DisplayMotionCreatorCore
                         float value = Convert.ToSingle(keyframes[4 + i][2]);
                         byte[] byteFrames = BitConverter.GetBytes(frame);
                         byte[] byteValue = BitConverter.GetBytes(value);
-                        
+
                         Array.Resize(ref keyName, 15);          //15バイトで固定
                         Array.Resize(ref byteFrames, 4);        //4バイト
                         Array.Resize(ref byteValue, 4);         //4バイト

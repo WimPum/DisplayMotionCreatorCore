@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using System.Windows.Media.Animation;
 
 namespace DisplayMotionCreatorCore
 {
@@ -207,7 +206,7 @@ namespace DisplayMotionCreatorCore
             totalKeys = 0; // 何回も実行できるようにリセット
 
             // 繰り上げ 区切りよく(ちょっと長くなる)
-            if (remain != 0) 
+            if (remain != 0)
             {
                 totalNotes = totalNotes - remain + timSig;
             }

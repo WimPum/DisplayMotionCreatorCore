@@ -1,7 +1,5 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace DisplayMotionCreatorCore
 {
@@ -78,13 +76,16 @@ namespace DisplayMotionCreatorCore
                 };
             }
         }
-        private void confirm_Click(object sender, RoutedEventArgs e)
+        private async void confirm_Click(object sender, RoutedEventArgs e)
         {
             try
             {
+                confirm.Content = "Wait";
+                await Task.Delay(100); // UI更新まで待つ
+
                 Debug.Write("GenSTART\n");
 
-				tempo = Convert.ToSingle(inputTempo.Text);
+                tempo = Convert.ToSingle(inputTempo.Text);
                 timSig = Convert.ToInt32(inputTimeSig.Text);
                 length = Convert.ToSingle(inputLength.Text);
                 if (inputStartFrame.Text == "開始フレーム位置を入力")
@@ -104,39 +105,34 @@ namespace DisplayMotionCreatorCore
                     startBar = Convert.ToInt32(inputStartBar.Text);
                 }
 
-				// 値がおかしくないかチェックする
-				if (timSig < 1 || timSig > 9)
-				{
-					MessageBox.Show("拍子は１〜９までの整数値で入力してください。", "エラー",
-					MessageBoxButton.OK, MessageBoxImage.Error);
-					return;
-				}
+                // 値がおかしくないかチェックする
+                if (timSig < 1 || timSig > 9)
+                {
+                    MessageBox.Show("拍子は１〜９までの整数値で入力してください。", "エラー",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
 
-				// 設定保存
-				saveTempo = inputTempo.Text;
-				saveTimeSig = inputTimeSig.Text;
-				saveLength = inputLength.Text;
-				saveStartFrame = inputStartFrame.Text;
-				saveStartBar = inputStartBar.Text;
-				Properties.Settings.Default.Save();
+                // 設定保存
+                saveTempo = inputTempo.Text;
+                saveTimeSig = inputTimeSig.Text;
+                saveLength = inputLength.Text;
+                saveStartFrame = inputStartFrame.Text;
+                saveStartBar = inputStartBar.Text;
+                Properties.Settings.Default.Save();
 
-				//ここで呼び出しましょう
-				CSV2VMD.WriteVmdFile(DMC.VmdCalc(30, tempo, timSig, length, startFrame, startBar));
+                //ここで呼び出し
+                CSV2VMD.WriteVmdFile(DMC.VmdCalc(30, tempo, timSig, length, startFrame, startBar));
             }
             catch (FormatException)
             {
                 MessageBox.Show("数値を入力してください。", "エラー",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
-        }
-
-        private void debug_Click(object sender, RoutedEventArgs e)
-        {
-            //List<string> list = new List<string>();
-            Debug.Write("Debugging/Opening\n");
-            // 30, 60, 4, 20, 0, 1で出力
-            // CSV2VMD.WriteVmdFile(data);
+            finally
+            {
+                confirm.Content = "実行";
+            }
         }
     }
 }
