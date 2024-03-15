@@ -15,7 +15,7 @@ MMDElectoneはこちらで配布しています。
 .NET C#+WPFになっています。[ModernWpfUi](https://github.com/Kinnara/ModernWpf)
 を採用し、いい見た目になりました。<br><br>
 ウイルス誤検知なくすために作ったのにWindowsセキュリティに引っかかってしまいました。Microsoftには勝てない
-:loudly_crying_face:
+&#x1f62d;
 
 ## 仕組み
 
