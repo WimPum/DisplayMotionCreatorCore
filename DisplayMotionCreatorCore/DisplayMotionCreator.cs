@@ -1,4 +1,6 @@
 ﻿using System.Diagnostics;
+using System.Text;
+using System.IO;
 
 namespace DisplayMotionCreatorCore
 {
@@ -139,13 +141,15 @@ namespace DisplayMotionCreatorCore
                     localNextList = (string[])keyframes[readIndex + 4].Clone(); // 連続するキー
 
                     int nextFrame = Convert.ToInt32(localList[1]) + 1;
-                    localNextList[1] = Convert.ToString(nextFrame); // フレーム番号＋１になっているだけの同じキーを探す。
+                    localNextList[1] = nextFrame.ToString(); // フレーム番号＋１になっているだけの同じキーを探す。
 
                     if (linkedKeyframes.Any(x => x.SequenceEqual(localNextList))) // 連続するキーがあったら
                     {
                         Debug.Write("Deleted keys\n");
-                        linkedKeyframes.Remove(localNextList); //オリジナルもその次のキーも消す
-                        linkedKeyframes.Remove(localList);
+                        //linkedKeyframes.Remove(localNextList); //オリジナルもその次のキーも消す
+                        //linkedKeyframes.Remove(localList); //消えてない
+                        linkedKeyframes.RemoveAll(x => x.SequenceEqual(localNextList) || x.SequenceEqual(localList));
+
                         delKeyNums += 2;
                     }
                     else
@@ -154,17 +158,16 @@ namespace DisplayMotionCreatorCore
                     }
 
                     readIndex++;
-
                 }
-                catch (ArgumentException)
+                catch (ArgumentOutOfRangeException)
                 {
                     Debug.WriteLine("Exiting Loop now");
                     break;
                 }
             }
             Debug.Print($"deleted {delKeyNums} keys");
-            keyframes = [.. linkedKeyframes];
-            keyframes[3][0] = Convert.ToString(maxKeyNums - delKeyNums);
+            keyframes = linkedKeyframes.ToList();
+            keyframes[3][0] = (maxKeyNums - delKeyNums).ToString();
             return keyframes;
         }
 
@@ -322,6 +325,22 @@ namespace DisplayMotionCreatorCore
             totalKeys = Convert.ToInt32(keyframesCleaned[3][0]);
             Debug.Print($"TotalKeys:{totalKeys}");
             return keyframesCleaned;
+        }
+    }
+
+    // StackOverFlowより
+    public static class LinkedListExtensions
+    {
+        public static void RemoveAll<T>(this LinkedList<T> linkedList,
+                                        Func<T, bool> predicate)
+        {
+            for (LinkedListNode<T> node = linkedList.First; node != null;)
+            {
+                LinkedListNode<T> next = node.Next;
+                if (predicate(node.Value))
+                    linkedList.Remove(node);
+                node = next;
+            }
         }
     }
 }

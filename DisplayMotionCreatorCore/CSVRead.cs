@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Text;
 
 namespace DisplayMotionCreatorCore
 {
@@ -25,6 +26,18 @@ namespace DisplayMotionCreatorCore
                 }
             }
             return csvData;
+        }
+
+        internal static void CsvWrite(List<string[]> keyframes, string address)
+        {
+            using (StreamWriter SW = new(address, false, Encoding.UTF8))
+            {
+                foreach (string[] keys in keyframes)
+                {
+                    SW.WriteLine(string.Join(",", keys));
+                }
+                SW.Close();
+            }
         }
     }
 }
