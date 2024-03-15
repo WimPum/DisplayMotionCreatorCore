@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # DisplayMotionCreatorCore
 
 ## DisplayMotionCreator .NET Edition
@@ -15,15 +14,10 @@ MMDElectoneはこちらで配布しています。
 と同様な使い方です。テンポ、拍子、長さだけ入力すれば生成できます。あとの２つは途中から始めるときに使ってください。<br>
 .NET C#+WPFになっています。[ModernWpfUi](https://github.com/Kinnara/ModernWpf)
 を採用し、いい見た目になりました。<br><br>
-ウイルス誤検知なくすために作ったのにWindowsセキュリティに引っかかってしまいました。Microsoftには勝てない:face_exhaling:
+ウイルス誤検知なくすために作ったのにWindowsセキュリティに引っかかってしまいました。Microsoftには勝てない:sob:
 
 ## 仕組み
 
 入力された値を元に、キーフレームのリスト(CSVみたいな二次元リスト)を作ったあと、余計なキーフレームを削除し、VMDに変換しています。<br>
 これはオリジナルのほうがわかりやすいかもしれません。
 
-
-
-=======
-# DisplayMotionCreatorCore
->>>>>>> parent of fa8110d (README譖ｴ譁ｰ)
