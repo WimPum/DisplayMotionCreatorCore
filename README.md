@@ -1,4 +1,5 @@
 # DisplayMotionCreatorCore
+![Preview](preview.png, "preview")
 
 ## DisplayMotionCreator .NET Edition
 
