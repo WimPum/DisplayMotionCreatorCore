@@ -13,9 +13,18 @@
     <FileVersion>$(AssemblyVersion)</FileVersion>
     <Copyright>© 2024 Ulyssa</Copyright>
     <Version>$(AssemblyVersion)</Version>
+    <Platforms>AnyCPU;ARM64;x64</Platforms>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
     <DebugType>none</DebugType>
   </PropertyGroup>
 
