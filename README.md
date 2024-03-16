@@ -1,5 +1,5 @@
 # DisplayMotionCreatorCore
-![Preview](preview.png, "preview")
+![Preview](preview.png "preview")
 
 ## DisplayMotionCreator .NET Edition
 
