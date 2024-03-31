@@ -9,7 +9,7 @@
     <AssemblyName>$(MSBuildProjectName.Replace("Core", ""))</AssemblyName>
     <ApplicationIcon>res\dmc.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <AssemblyVersion>0.1</AssemblyVersion>
+    <AssemblyVersion>1.0</AssemblyVersion>
     <FileVersion>$(AssemblyVersion)</FileVersion>
     <Copyright>© 2024 Ulyssa</Copyright>
     <Version>$(AssemblyVersion)</Version>
