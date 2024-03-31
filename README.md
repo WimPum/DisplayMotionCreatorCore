@@ -13,10 +13,10 @@ MMDElectoneはこちらで配布しています。
 今までの
 [DisplayMotionCreator](https://github.com/WimPum/DisplayMotionCreator)
 と同様な使い方です。テンポ、拍子、長さだけ入力すれば生成できます。あとの２つは途中から始めるときに使ってください。<br>
-.NET C#+WPFになっています。[ModernWpfUi](https://github.com/Kinnara/ModernWpf)
+.NET C#+WPFになっています。サポートされるOSはWindows 10 1607以降, Windows 11です。[参照](https://github.com/dotnet/core/blob/main/release-notes/8.0/supported-os.md)<br>
+[ModernWpfUi](https://github.com/Kinnara/ModernWpf)
 を採用し、いい見た目になりました。<br><br>
-ウイルス誤検知なくすために作ったのにWindowsセキュリティに引っかかってしまいました。Microsoftには勝てない
-&#x1f62d;
+
 
 ## 仕組み
 
